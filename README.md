@@ -27,7 +27,7 @@ The primary design consideration I have tried to implement is S3: simple, secure
 
 3. Three types of functional users: Admin, Reviewer and User.  All interact with the system via email to invoke micro-services.
 
-4. Only a small number of authorized Admins and Reviewers with a registered DXC email-id can invoke Admin functions via email.    Admins can invoke all the Admin functions.  A Reviewer can also invoke Admin Functions, except three - Adding a Badge / Adding additional Reviewers to a Badge / Delete a Badge.   Only DXC employees can be an Admin or a Reviewer.  <i>For better control on critical access, Admins can only be added by the product owner.  To be added as an admin, please drop a note to [vsivasubram3@dxc.com](mailto:vsivasubram3@dxc.com).</i> Admins can add additional reviewers either during a Badge creation or later on via "[Add Reviewers to a badge](#add-reviewers-to-a-badge)".
+4. Only a small number of authorized Admins and Reviewers with a registered DXC email-id can invoke Admin functions via email.    Admins can invoke all the Admin functions.  A Reviewer can also invoke Admin Functions, except three - Adding a Badge / Adding additional Reviewers to a Badge / Delete a Badge.   Only DXC employees can be an Admin or a Reviewer.  <i>For better control on critical access, Admins can only be added by the product owner.  To be added as an admin, please drop a note to [Vaidya](mailto:svaidyan_signup@hotmail.com).</i> Admins can add additional reviewers either during a Badge creation or later on via "[Add Reviewers to a badge](#add-reviewers-to-a-badge)".
 
 5. To be GDPR compliant, no other PII (Personally Identifiable Information) is collected and stored in the system, apart from the email-id of the Admins and Reviewers.  For Users, email-id and name is captured.
 
@@ -110,12 +110,12 @@ Interactions with the system are completely via email.  The system is completed 
 ### Add a Badge
 * An admin sends an email to "add-badge@badger.services" with the following information:
     - Subject: Add a Badge
-    - Attachment: Badge image confirming to DXC standards as detailed in "Badge Design" section [here](https://my.dxc.com/employee-resources/global-learning-and-development/DXCBadges.html).
+    - Attachment: Badge image confirming to standards of our company.
     - Body of the email should have:
         - Name: <Name of the Badge>
         - Description: <Description of the Badge>
         - Reviewers: <List of comma separated <b>DXC</b> email-ids' of reviewers <b>ending with a semicolon ";"</b>>
-          <br /><i>( for example: </i>vsivasubram3@dxc.com, tlhotak@dxc.com, rpetrova@dxc.com; <i>)</i>
+          <br /><i>( for example: </i>emp1@acme.com, emp2@acme.com, emp3@acme.com; <i>)</i>
           <br />- if there are no reviewers to be added to the badge at this time leave the field as <b>Reviwers:;</b>
         
 * On successful validation, the Badge details are stored in the system with the admin who sent the request email as <i>Badge Owner</i>.  A notification email is sent to the Badge Owner and Reviewers (if any, as "Cc") along with the badge image as attachment.
@@ -210,12 +210,12 @@ reviewed by DXC.
 <a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
 
 ### Forget a Badge
-* To be compliant to GDPR guidelines, if an user wants to remove his/her Badge, they send an email to "forget-badge@badger.services" with the subject of the email having the Badge Name to be removed.  On successful validations, the badge will marked for <b><i>hard delete (not recoverable) after seven days</i></b>.  If user changes their decision to forget the badge, s/he has to inform the badge owner <b><i>within seven days</i></b>, so that the badge owner can inform the [system administrator](vsivasubram3@dxc.com) to retain the badge.  An email notification to user, with "Cc" having all associated Badge owners, will be sent.  After seven days, all the data associated with the user in DynamoDB table will be hard deleted (not recoverable).    
+* To be compliant to GDPR guidelines, if an user wants to remove his/her Badge, they send an email to "forget-badge@badger.services" with the subject of the email having the Badge Name to be removed.  On successful validations, the badge will marked for <b><i>hard delete (not recoverable) after seven days</i></b>.  If user changes their decision to forget the badge, s/he has to inform the badge owner <b><i>within seven days</i></b>, so that the badge owner can inform the [system administrator - Vaidya](svaidyan_signup@hotmail.com) to retain the badge.  An email notification to user, with "Cc" having all associated Badge owners, will be sent.  After seven days, all the data associated with the user in DynamoDB table will be hard deleted (not recoverable).    
 
 * A sample request email from user is [here](images/forget-badge-request.png) and a sample response email from system is [here](images/forget-badge-response.png).
 
 ### Forget ALL Badges
-* To be compliant to GDPR guidelines, if an user wants to be permanently removed from the Badger system, he/she sends an email to "forget-all-badges@badger.services".  On successful validations, the badge will marked for <b><i>hard delete (not recoverable) after seven days</i></b>.  If user changes their decision to forget the badge, s/he has to inform the badge owner <b><i>within seven days</i></b>, so that the badge owner can inform the [system administrator](vsivasubram3@dxc.com) to retain the badge.  An email notification to user, with "Cc" having all associated Badge owners, will be sent.  After seven days, all the data associated with the user in DynamoDB table will be hard deleted (not recoverable).
+* To be compliant to GDPR guidelines, if an user wants to be permanently removed from the Badger system, he/she sends an email to "forget-all-badges@badger.services".  On successful validations, the badge will marked for <b><i>hard delete (not recoverable) after seven days</i></b>.  If user changes their decision to forget the badge, s/he has to inform the badge owner <b><i>within seven days</i></b>, so that the badge owner can inform the [system administrator - Vaidya](svaidyan_signup@hotmail.com) to retain the badge.  An email notification to user, with "Cc" having all associated Badge owners, will be sent.  After seven days, all the data associated with the user in DynamoDB table will be hard deleted (not recoverable).
 
 * A sample request email from user is [here](images/forget-all-badges-request.png) and a sample response email from system is [here](images/forget-all-badges-response.png).
 
