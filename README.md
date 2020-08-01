@@ -85,7 +85,7 @@ The primary design consideration I have tried to implement is S3: simple, secure
     |sk|"Admin" or "Reviewer"|
     |email_id|\<Email-id\>|
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Workflow Architecture
 
@@ -95,7 +95,7 @@ The primary design consideration I have tried to implement is S3: simple, secure
 
 Interactions with the system are completely via email.  The system is completed hosted on AWS.  An email request sent to a specific email address invokes a SES (Simple Email Service) action, which stores the email in a S3 bucket.  This in turn triggers an associated Lambda action.  The Lambda function retrieves / stores appropriate data from / to a DynamoDB table and sends back an email response to the original requestor.
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Major functional workflow
 
@@ -103,7 +103,7 @@ Interactions with the system are completely via email.  The system is completed 
     <img src="images/Workflow.png" width="75%" /> 
 </p>
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ## Admin / Reviewer actions
 
@@ -122,7 +122,7 @@ Interactions with the system are completely via email.  The system is completed 
 
 * A sample request email is [here](images/add-badge-request.png) and a sample system response email is [here](images/add-badge-response.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Add Reviewers to a Badge
 * In cases where reviewers have to be added after the intial creation of the badge, an Admin, who is the owner of the Badge, sends an email to "add-reviewers@badger.services" with the subject having Badge Name and in the body of the message a list of comma separated email-ids' <b>ending with a semicolon ";"</b>.  
@@ -131,7 +131,7 @@ Interactions with the system are completely via email.  The system is completed 
 
 * A sample request email is [here](images/add-reviewers-request.png) and a sample system response email is [here](images/add-reviewers-response.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Award Badge
 * Once an user applies for a Badge (as [below](#apply-for-a-badge)), the system will trigger an automated email alert to the Badge Owner with "Cc" to Reviewers.  The email has two action buttons: "Award Badge" and "Rework needed".
@@ -146,7 +146,7 @@ Badge "<badge_name>" has been issued to "<user email_id>" on "<awarded_date>".
 
 * A sample first automated email from system is [here](images/apply-badge-response-admin.png).  A sample prepopulated award badge email sent by Badge Owner or Reviewer is [here](images/award-badge-request.png) and a sample Badge award confirmation email is [here](images/award-badge-response-user.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Rework
 * Once an user applies for a Badge (as [below](#apply-for-a-badge)), the system will trigger an automated email alert to the Badge Owner with "Cc" to Reviewers.  The email has two action buttons: "Award Badge" and "Rework needed".
@@ -157,7 +157,7 @@ Badge "<badge_name>" has been issued to "<user email_id>" on "<awarded_date>".
 
 * A sample first automated email from system is [here](images/apply-badge-response-admin.png).  A sample initial rework email created by system is [here](images/rework-badge-request-initial.png) and the one sent by Badge Owner or Reviewer is [here](images/rework-badge-request-admin.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Delete a Badge
 * An Admin, who is the owner of the Badge, sends an email to "delete-badge@badger.services" with the subject having the Badge Name.  
@@ -168,7 +168,7 @@ Badge "<badge_name>" has been issued to "<user email_id>" on "<awarded_date>".
 
 * A sample email from an Admin to delete a Badge is [here](images/delete-badge-request.png).  Sample response email from the system to the requesting Admin is [here](images/delete-badge-response-admin.png) and to Users is [here](images/delete-badge-response-user.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Modify a Badge
 * This is a two-step process.  First, the owner of badge deletes the current badge (as [above](#delete-a-badge)) and then adds a new badge (as [above](#add-a-badge)).
@@ -179,7 +179,7 @@ Badge "<badge_name>" has been issued to "<user email_id>" on "<awarded_date>".
 ### Get all Assertions
 * An authorized Admin sends an email to "get-all-assertions@badger.services".  The system would email back the requestor with information of all the Assertions in the system along with an Excel attachment having all the details.
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ## User actions
 
@@ -191,7 +191,7 @@ Badge "<badge_name>" has been issued to "<user email_id>" on "<awarded_date>".
 
 * A sample user request email is [here](images/apply-badge-request.png).  The sample response email to user is [here](images/apply-badge-response-user.png) and Admin / Reviewers is [here](images/apply-badge-response-admin.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Backpack
 * An user sends an email to "backpack@badger.services".  On successful validation, all the Assertions associated with the requestor's email-id will be emailed back to the user.  The Badge images are attached along with metadata information.  If a Badge has been "Awarded", the metadata information is 
@@ -207,7 +207,7 @@ Badge "<badge_name>" has been applied by "<user email_id>" on "<applied_date>" w
 reviewed by DXC.
 ```
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ### Forget a Badge
 * To be compliant to GDPR guidelines, if an user wants to remove his/her Badge, they send an email to "forget-badge@badger.services" with the subject of the email having the Badge Name to be removed.  On successful validations, the badge will marked for <b><i>hard delete (not recoverable) after seven days</i></b>.  If user changes their decision to forget the badge, s/he has to inform the badge owner <b><i>within seven days</i></b>, so that the badge owner can inform the [system administrator - Vaidya](svaidyan_signup@hotmail.com) to retain the badge.  An email notification to user, with "Cc" having all associated Badge owners, will be sent.  After seven days, all the data associated with the user in DynamoDB table will be hard deleted (not recoverable).    
@@ -232,7 +232,7 @@ For example, Create a Data Story || vaidya@outlook.com
 
 * A sample request email is [here](images/verify-badge-request.png) and a sample system response email is [here](images/verify-badge-response.png).
 
-<a href="#badger-external"><img src="images/top.png" width="3%"></img></a>
+<a href="#badger"><img src="images/top.png" width="3%"></img></a>
 
 ## Support
 For any support, please drop an email to [Vaidyanathan Sivasubramanian](svaidyan_signup@hotmail.com).
