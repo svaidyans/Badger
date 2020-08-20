@@ -16,7 +16,7 @@
 |   |   |[Get all Assertions](#get-all-assertions)|   |   |
 
 ## Need / Purpose
-Badger is primarily intended for internal DXC employees.  However, there exists a business use case wherein external people might be awarded DXC branded badges, for instance, after attending an technical bootcamp or event.  For such a scenario, we need a badging system which is independent of the internal DXC employees-only app.
+Badger is primarily intended for internal DXC employees.  However, there exists a business use case wherein external people might be awarded DXC branded badges, for instance, after attending a technical bootcamp or event.  For such a scenario, we need a badging system which is independent of the internal DXC employees-only app.
 
 ## Design considerations
 The primary design consideration I have tried to implement is S3: simple, secure and scalable.  System has to be simple enough for both technical as well as non-technical users, secure and should be scalable at enterprise level.  Further the system should allow easy integration with any other system.  To satisy all these aspects, the HCI (Human Computer Interaction) interface has been chosen as email.
